@@ -1,0 +1,80 @@
+html,
+body {
+  margin: 0;
+  padding: 5;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+#map {
+  width: 100%; /* Adjust width to your desired size */
+  height: 100%; /* Adjust height to your desired size */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for effect */
+  border-radius: 8px; /* Optional: rounded corners */
+}
+
+#map svg {
+  position: absolute; /* Position it on top of the map */
+  z-index: 1; /* Ensure it appears above the map */
+  width: 100%; /* Make it fill the map container */
+  height: 100%; /* Make it fill the map container */
+  pointer-events: none; /* Allow interaction with the map underneath */
+}
+
+/* Optional CSS for better visualization */
+svg circle {
+  fill: steelblue;
+  fill-opacity: 0.6;
+  stroke: white;
+  stroke-width: 1;
+}
+
+circle {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  fill: var(--color);
+  pointer-events: auto; /* Enable pointer events for circles */
+}
+
+/* Shared color variables for map circles and legend */
+#map circle,
+.legend > div {
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  background-color: var(--color);
+}
+
+/* Legend container styling */
+.legend {
+  display: flex;
+  justify-content: space-between;
+  margin-block: 1rem;
+  padding: 0.5rem;
+  gap: 1px; /* Small gap between legend items */
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Legend item styling */
+.legend > div {
+  flex: 1;
+  text-align: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  color: #333; /* Ensure text contrast */
+  border-radius: 3px;
+}

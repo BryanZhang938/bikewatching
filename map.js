@@ -100,7 +100,11 @@ map.on('load', async () => {
     id: 'bike-lanes-cambridge',
     type: 'line',
     source: 'cambridge_route',
-    paint: cam_bikeLaneStyle,
+    paint: {
+      'line-color': '#32D400',
+      'line-width': 3,
+      'line-opacity': 0.6,
+    },
   });
 
   try {

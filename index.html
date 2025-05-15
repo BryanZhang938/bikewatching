@@ -13,27 +13,24 @@
 
   </head>
   <body>
-    <header>
-      <h1>🚴🏼‍♀️ Bikewatching</h1>
-      <label>
-        Filter by time:
-        <div>
-          <input type="range" id="time-slider" min="-1" max="1439" value="-1" />
+      <header>
+        <h1>🚴🏼‍♀️ Bikewatching</h1>
+        <label>
+          Filter by time:
+          <input id="time-slider" type="range" min="-1" max="1440" value="-1" />
           <time id="selected-time"></time>
-          <span id="any-time">(any time)</span>
-        </div>
-      </label>
-    </header>
-    <div id="map">
+          <em id="any-time">(any time)</em>
+        </label>
+      </header>
+    
+      <div id="map">
         <svg></svg>
-    </div>
-    <div class="legend">
-      <div style="--departure-ratio: 1">More departures</div>
-      <div style="--departure-ratio: 0.5">Balanced</div>
-      <div style="--departure-ratio: 0">More arrivals</div>
-
-
-
-</html>  </body>    </div>    </div>
+      </div>
+      <div class="legend">
+        <div style="--departure-ratio: 1">More departures</div>
+        <div style="--departure-ratio: 0.5">Balanced</div>
+        <div style="--departure-ratio: 0">More arrivals</div>
+      </div>
+      <div id="tooltip" class="tooltip" style="display: none;"></div>
   </body>
 </html>

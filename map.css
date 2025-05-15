@@ -5,26 +5,25 @@ body {
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: center;
+  align-items: center;
 }
 
 #map {
-  width: 100%; /* Adjust width to your desired size */
-  height: 100%; /* Adjust height to your desired size */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for effect */
-  border-radius: 8px; /* Optional: rounded corners */
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 
 #map svg {
-  position: absolute; /* Position it on top of the map */
-  z-index: 1; /* Ensure it appears above the map */
-  width: 100%; /* Make it fill the map container */
-  height: 100%; /* Make it fill the map container */
-  pointer-events: none; /* Allow interaction with the map underneath */
+  position: absolute;
+  z-index: 1; 
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
-/* Optional CSS for better visualization */
 svg circle {
   fill: steelblue;
   fill-opacity: 0.6;
@@ -41,10 +40,9 @@ circle {
     var(--color-arrivals)
   );
   fill: var(--color);
-  pointer-events: auto; /* Enable pointer events for circles */
+  pointer-events: auto; 
 }
 
-/* Shared color variables for map circles and legend */
 #map circle,
 .legend > div {
   --color-departures: steelblue;
@@ -55,31 +53,45 @@ circle {
     var(--color-arrivals)
   );
   background-color: var(--color);
+  fill: var(--color);
 }
 
-/* Legend container styling */
+
 .legend {
   display: flex;
   justify-content: space-between;
   margin-block: 1rem;
   padding: 0.5rem;
-  gap: 1px; /* Small gap between legend items */
+  gap: 1px;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
-/* Legend item styling */
 .legend > div {
   flex: 1;
   text-align: center;
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
-  color: #333; /* Ensure text contrast */
+  color: #333;
   border-radius: 3px;
 }
 
-/* allow native browser tooltips on <circle> */
 #map svg circle {
   pointer-events: auto;
+}
+
+.tooltip {
+  position: absolute;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 0.5em;
+  font-size: 0.9em;
+  pointer-events: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  transition: opacity 0.1s ease;
+  opacity: 0.95;
+  max-width: 220px;
+  z-index: 10;
 }

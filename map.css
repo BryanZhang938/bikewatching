@@ -78,3 +78,8 @@ circle {
   color: #333; /* Ensure text contrast */
   border-radius: 3px;
 }
+
+/* allow native browser tooltips on <circle> */
+#map svg circle {
+  pointer-events: auto;
+}
